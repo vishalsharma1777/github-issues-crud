@@ -1,0 +1,556 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: 'Mona Sans';
+  font-style: normal;
+  src: url('/assets/fonts/Mona-Sans.woff2') format('woff2');
+}
+:root {
+  /* Colors */
+  --black: #0a0d11;
+  --grey: #272b33;
+  --white: #f0f3f7;
+  --offwhite: #cbb9aa;
+  --offgrey: #f7f7f7;
+  --blue: #71b7ff;
+  --green: #09b43a;
+  --hover-green: #0acf5f;
+  --pro: #b780ff;
+
+  /*Typography*/
+  --extra-small: 1rem;
+  --normal-font: 1.5rem;
+  --normal-line: 1.75rem;
+  --small-font: 2rem;
+  --small-line: 2.2222rem;
+  --medium-font: 2.5rem;
+  --medium-line: 2.8333rem;
+  --large-font: 3.5rem;
+  --large-line: 3.8889rem;
+  --normal-weight: 500;
+  --bold-weight: 700;
+
+  /*Margins*/
+  --margin-small: 0.5rem;
+  --margin-medium: 1rem;
+  --margin-large: 1.5rem;
+  --margin-extra-large: 2rem;
+  --bottom-margin: 5rem;
+  --mobile-margin: 2.5rem;
+
+  /* Radius */
+  --small-radius: 1rem;
+}
+
+html {
+  font-family: 'Mona Sans';
+  max-width: 100%;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  max-width: 100%;
+  background-color: var(--black);
+  color: var(--white);
+}
+
+hr {
+  border: 1px solid var(--grey);
+  width: 100%;
+}
+.container {
+  display: block;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: var(--margin-large);
+  margin-bottom: var(--margin-large);
+  border: 1px solid var(--grey);
+  padding: var(--margin-medium);
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--margin-extra-large);
+}
+
+img {
+  border-radius: 50%;
+  width: 5rem;
+  margin-right: var(--margin-medium);
+}
+
+.profileName {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profileText {
+  font-size: var(--normal-font);
+  font-weight: var(--bold-weight);
+}
+
+.link {
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--blue);
+}
+
+.buttons {
+  background-color: var(--green);
+  border: none;
+  border-radius: var(--small-radius);
+  font-size: var(--normal-font);
+  font-weight: var(--bold-weight);
+  padding: var(--margin-small);
+  margin: var(--margin-small);
+  cursor: pointer;
+  color: var(--black);
+}
+
+.buttons:hover {
+  background-color: var(--hover-green);
+}
+
+.tokenDiv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.tokenLabel {
+  font-size: var(--normal-font);
+  font-weight: var(--bold-weight);
+  margin-right: var(--margin-medium);
+}
+
+.tokenInput {
+  background-color: var(--grey);
+  width: 23rem;
+  color: var(--white);
+  border: none;
+  border-radius: var(--small-radius);
+  font-size: var(--extra-small);
+  padding: var(--margin-small);
+  margin: var(--margin-small);
+  margin-top: var(--margin-extra-large);
+}
+
+.tokenLegendText {
+  font-size: var(--extra-small);
+  font-weight: var(--normal-weight);
+  margin-left: var(--margin-medium);
+}
+.tabView {
+  display: none;
+}
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: var(--margin-extra-large);
+}
+
+.title,
+.heading {
+  text-align: center;
+  font-size: var(--large-font);
+  font-weight: var(--bold-weight);
+  line-height: var(--large-line);
+  margin-top: var(--margin-medium);
+}
+
+.description {
+  width: 60%;
+  text-align: center;
+  font-size: var(--extra-small);
+  font-weight: var(--normal-weight);
+}
+
+.main {
+  display: flex;
+  min-height: 80%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mainNav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: var(--margin-extra-large);
+}
+
+.repositoryList {
+  font-size: var(--normal-font);
+  width: 20rem;
+  margin: var(--margin-medium);
+  padding: var(--margin-medium);
+  background-color: var(--grey);
+  border-radius: var(--small-radius);
+  color: var(--white);
+  cursor: pointer;
+}
+
+.repositoryLabel {
+  font-weight: var(--bold-weight);
+  margin-right: var(--margin-medium);
+  color: var(--pro);
+}
+.repos {
+  display: flex;
+  align-items: center;
+}
+.initialButtons {
+  display: flex;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  background-color: var(--black);
+  color: var(--white);
+  width: auto;
+  height: auto;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.modalToken {
+  display: flex;
+  justify-content: space-between;
+}
+span {
+  cursor: pointer;
+  font-size: var(--medium-font);
+  font-weight: var(--normal-weight);
+  margin: 0;
+  margin-right: 0.5rem;
+}
+.modalContent {
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+
+  border: 1px solid var(--white);
+}
+.modalHeading {
+    margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+.modal1,.modal2 {
+  margin-top: var(--extra-small);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.{
+  width: auto;
+  font-size: var(--medium-font);
+}
+.modalButton {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.titleModal ,.tbody{
+    font-size: var(--small-font);
+    margin: var(--margin-small);
+    width: 95%;
+    padding: var(--margin-small);
+    border-radius: var(--small-radius);
+    border: none;
+    background-color: var(--grey);
+    color: var(--white);
+}
+
+.tbody{
+    height: 6rem;
+    font-size: var(--extra-small);
+}
+
+.form1text{
+    font-size: var(--small-font);
+    margin-left: var(--margin-small);
+}
+
+.issues {
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 3rem;
+  border: 1px solid var(--white);
+}
+#issuesTable {
+  width: 100%;
+}
+
+#issuesTable th,
+#issuesTable td {
+  border: 1px solid var(--grey);
+  color: var(--black);
+  padding: 7px;
+  text-align: left;
+}
+
+th {
+  width: 10rem;
+}
+
+#issuesTable th:nth-child(even) {
+  background-color: var(--black);
+}
+#issuesTable tr:nth-child(odd) {
+  background-color: var(--offwhite);
+}
+
+#issuesTable tr:nth-child(even) {
+  background-color: var(--offgrey);
+}
+
+#number,
+#title,
+#body,
+#createdAt,
+#status,
+#url,
+#htmlurl {
+  font-weight: bold;
+}
+
+ul {
+  list-style: none;
+}
+
+.operations {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--margin-medium);
+}
+#warning {
+  margin-bottom: var(--bottom-margin);
+}
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: var(--margin-extra-large);
+}
+.gitFooter {
+  display: flex;
+  align-items: center;
+}
+.footerLinks {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  align-items: center;
+  justify-items: center;
+}
+h5 {
+  font-size: var(--extra-small);
+  font-weight: var(--normal-weight);
+}
+
+@media screen and (max-width: 1230px) {
+  .container {
+    width: 90%;
+  }
+  header {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: var(--mobile-margin);
+  }
+  .tabView {
+    display: flex;
+    justify-content: flex-end;
+    width: 70%;
+  }
+
+  .profileName {
+    margin-top: var(--margin-medium);
+    margin-bottom: var(--margin-medium);
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  .tokenDiv {
+    flex-direction: row;
+    align-self: flex-start;
+  }
+
+  .title,
+  .heading {
+    text-align: center;
+    font-size: var(--medium-font);
+    font-weight: var(--bold-weight);
+    line-height: var(--large-line);
+    margin-top: var(--margin-medium);
+  }
+  .description {
+    width: 70%;
+  }
+  .mainNav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footerLinks {
+    width: 70%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .container {
+    width: 90%;
+  }
+  header {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: var(--mobile-margin);
+  }
+  .profileName {
+    margin-top: var(--margin-medium);
+    margin-bottom: var(--margin-medium);
+  }
+
+  .tokenDiv {
+    flex-direction: row;
+  }
+
+  .description {
+    width: 80%;
+  }
+  .issues {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid #f7f8fa;
+  }
+
+  .operations {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 824px) {
+  .intro {
+    gap: 0rem;
+  }
+  .title,
+  .heading {
+    text-align: center;
+    font-size: var(--small-font);
+    font-weight: var(--bold-weight);
+    line-height: var(--large-line);
+    gap: var(--extra-small);
+    margin-top: var(--small-medium);
+  }
+  .repositoryLabel {
+    font-size: var(--small-font);
+  }
+  .repositoryList {
+    font-size: var(--extra-small);
+    padding: var(--margin-small);
+    width: 15rem;
+  }
+}
+
+@media screen and (max-width: 713px) {
+  .repositoryLabel {
+    font-size: var(--normal-font);
+  }
+
+  .tabledata {
+    font-size: var(--extra-small);
+    width: 90%;
+  }
+  li {
+    font-size: small;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .container {
+    width: 90%;
+  }
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: var(--mobile-margin);
+  }
+  .profileName {
+    margin-top: var(--margin-medium);
+    margin-bottom: var(--margin-medium);
+    justify-content: center;
+  }
+
+  .tokenDiv {
+    flex-direction: column;
+    align-self: flex-start;
+    margin-top: var(--margin-large);
+  }
+
+  .tokenLabel {
+    align-self: flex-start;
+    margin-left: var(--margin-large);
+  }
+  .tokenInput {
+    margin: var(--extra-small);
+  }
+  .title,
+  .heading {
+    text-align: center;
+    font-size: var(--small-font);
+    font-weight: var(--bold-weight);
+    line-height: var(--medium-line);
+    margin-top: var(--margin-medium);
+  }
+
+  .description {
+    width: 80%;
+  }
+
+  .tabView {
+    display: none;
+  }
+
+  .repositoryLabel {
+    font-size: var(--extra-small);
+  }
+
+  .repositoryList {
+    font-size: var(--extra-small);
+    padding: var(--margin-small);
+    width: 15rem;
+    margin-left: 0rem;
+  }
+}
+
+/* @media screen and (max-width: 530px){
+    .container
+} */

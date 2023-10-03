@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="assets/githubLogo.png" type="image/x-icon" />
+  <link rel="stylesheet" href="index.css" />
+  <script src="https://kit.fontawesome.com/32ef41381d.js" crossorigin="anonymous"></script>
+  <title>Git Issues</title>
+</head>
+
+<body>
+  <div class="container">
+    <!-- HEADER -->
+    <header>
+      <div class="profileName">
+        <div class="profileImage"><img src="assets/profilePic.jpeg" /></div>
+        <div class="profileText">
+          <a href="https://github.com/vishalsharma1777" target="_blank" class="link">
+            Vishalsharma1777</a>
+        </div>
+        <div class="tabView">
+          <img src="assets/githubLogo.png" />
+        </div>
+      </div>
+      <div class="tokenDiv">
+        <div class="tokenLabel">
+          <label for="token" class="labelText">Enter your token:</label>
+        </div>
+        <div class="token">
+          <input type="text" id="token" class="tokenInput" name="token" placeholder="🔑 Enter your token" />
+          <legend class="tokenLegend">
+            <span class="tokenLegendText">Token is required to Create,Update & Delete only.</span>
+          </legend>
+        </div>
+      </div>
+    </header>
+    <hr />
+
+    <!-- INTRO -->
+    <div class="intro">
+      <div class="title">
+        <h1 class="heading">Perform CRUD Opreations on Issues</h1>
+      </div>
+      <div class="description">
+        <p>
+          This is a simple web application which performs CRUD operations on
+          issues of a repository. Github API is used to perform these
+          operations.
+        </p>
+      </div>
+
+    </div>
+    <hr />
+
+    <!-- MAIN -->
+    <div class="main">
+      <div class="mainNav">
+        <div class="repos">
+          <label for="repository" class="repositoryLabel">
+            <h1 class="repositoryLabel">Select a repository :</h1>
+          </label>
+          <select id="repository" name="repository" class="repositoryList">
+            <option value="none" selected disabled hidden></option>
+          </select>
+        </div>
+        <div class="initialButtons">
+        <div>
+          <button type="button" id="showIssuesButton" class="showIssuesButton buttons">
+            <i class="fa-regular fa-circle-dot"></i> Show Issues
+          </button>
+        </div>
+        <div>
+          <button type="button" id="newIssueButton" class="newIssueButton buttons">
+            <i class="fa-solid fa-plus"></i> New Issue
+          </button>
+        </div>
+         
+        </div>
+      </div>
+      <div id="warning"></div>
+      <ul id="issueList"></ul>
+    </div>
+
+    <!-- FOOTER -->
+    <hr />
+    <br />
+    <footer>
+      <div class="gitFooter">
+        <img src="assets/githubLogo.png" class="foot" />
+        <a href="https://github.com" class="link"> <h4>©2023 GitHub, Inc.</h4></a>
+      </div>
+      <div class="footerLinks">
+          <a href="https://docs.github.com/en/site-policy/github-terms/github-terms-of-service" target="_blank" class="link"><h5>Terms</h5></a>
+          <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" class="link"><h5>Privacy</h5></a>
+          <a href="https://www.githubstatus.com/" target="_blank"class="link"><h5>Status</h5></a>
+          <a href="https://docs.github.com/en" target="_blank" class="link"><h5>Docs</h5></a>
+          <a href="https://docs.github.com/en/rest?apiVersion=2022-11-28" target="_blank" class="link"><h5>API</h5></a>
+          <a href="https://services.github.com/" target="_blank" class="link"><h5>Training</h5></a>
+          <a href="https://github.blog/" target="_blank" class="link"><h5>Blog</h5></a>
+          <a href="https://github.com/about" target="_blank" class="link"><h5>About</h5></a>
+      </div>
+    </footer>
+  </div>
+  <div id="newIssueModal" class="modal">
+    <div class="modalContent">
+      <div class="modalToken">
+      <div class="token">
+        <input type="text" id="modaltoken" class="tokenInput yo" name="token" placeholder="🔑 Enter your token" />
+        <legend class="tokenLegend">
+          <span class="tokenLegendText">Token is required to Create a issue.</span>
+        </legend>
+      </div>
+      <span class="close">&times;</span>
+      </div>
+      <div class="modalHeading">
+        <h1>Create New Issue</h1>
+        
+      </div>
+      <form id="newIssueForm" class="modalForm">
+        <div class="modal1">
+        <label for="title" class="form1text">Title:</label>
+        <input type="text" id="titlePost" name="title" placeholder="Title" required class="titleModal" />
+      </div>
+      <div class="modal2">
+        <label for="body" class="form1text">Write:</label>
+        <textarea id="bodyPost" name="bodyPost" placeholder="Body" required class="tbody formtext"></textarea>
+      </div>
+      <div class="modalButton">
+        <button type="submit" id="createIssueButton" class="newIssueButton buttons">
+          <i class="fa-solid fa-plus"></i> Create Issue
+        </button>
+      </div>
+      </form>
+    </div>
+  </div>
+  <script src="index.js"></script>
+</body>
+
+</html>
