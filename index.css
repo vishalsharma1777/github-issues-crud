@@ -221,9 +221,8 @@ img {
   color: var(--white);
   width: auto;
   height: auto;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  left: 0;
 }
 .modalToken {
   display: flex;
@@ -256,10 +255,7 @@ span {
   justify-content: center;
   align-items: flex-start;
 }
-.{
-  width: auto;
-  font-size: var(--medium-font);
-}
+
 .modalButton {
   display: flex;
   justify-content: flex-end;
